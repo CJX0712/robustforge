@@ -1,0 +1,23 @@
+# Byte-compiled / optimized
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.eggs/
+
+# Test / coverage
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local benchmark outputs (keep committed benchmark.json as reference)
+*.tmp
+_tmp.json
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+.env

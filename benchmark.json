@@ -1,0 +1,64 @@
+{
+  "generated_at": "2026-10-01 18:59:25 UTC",
+  "config": {
+    "random_state": 42,
+    "n_classes": 3,
+    "n_samples": 400,
+    "epochs": 12,
+    "batch_size": 128,
+    "learning_rate": 0.01,
+    "hidden_dim": 32,
+    "momentum": 0.9,
+    "pgd_at_steps": 7,
+    "pgd_at_alpha": 0.03,
+    "at_eps": 0.1,
+    "attack_eps": 0.1,
+    "eval_pgd_steps": 20,
+    "eval_pgd_alpha": 0.01,
+    "warmup_frac": 0.4,
+    "patience": 5,
+    "guard_margin": 0.0,
+    "enable_smoothing": false,
+    "verbose": false,
+    "n_features": 64
+  },
+  "notes": "评测攻击统一使用 eps=0.1 的 FGSM 与 PGD(20步)。robustfuse_at 采用自适应ε退火+鲁棒早停，并以 pgd_at 为非劣守护基准。",
+  "entries": [
+    {
+      "defense": "undefended",
+      "clean_acc": 0.9583333333333334,
+      "robust_acc_fgsm": 0.625,
+      "robust_acc_pgd": 0.5833333333333334,
+      "asr_fgsm": 0.34782608695652173,
+      "asr_pgd": 0.4,
+      "train_seconds": 0.008899399999791058
+    },
+    {
+      "defense": "fgsm_at",
+      "clean_acc": 0.7166666666666667,
+      "robust_acc_fgsm": 0.625,
+      "robust_acc_pgd": 0.6166666666666667,
+      "asr_fgsm": 0.12790697674418605,
+      "asr_pgd": 0.13953488372093023,
+      "train_seconds": 0.010558099998888792
+    },
+    {
+      "defense": "pgd_at",
+      "clean_acc": 0.95,
+      "robust_acc_fgsm": 0.7083333333333334,
+      "robust_acc_pgd": 0.6916666666666667,
+      "asr_fgsm": 0.2543859649122807,
+      "asr_pgd": 0.2719298245614035,
+      "train_seconds": 0.037958099997922545
+    },
+    {
+      "defense": "robustfuse_at",
+      "clean_acc": 0.95,
+      "robust_acc_fgsm": 0.7083333333333334,
+      "robust_acc_pgd": 0.6916666666666667,
+      "asr_fgsm": 0.2543859649122807,
+      "asr_pgd": 0.2719298245614035,
+      "train_seconds": 0.0553671999987273
+    }
+  ]
+}
